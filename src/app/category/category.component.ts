@@ -55,4 +55,12 @@ get street(){
   return this.address.get('street');
 }
 
+get state (){
+  return this.address.get('state')
+}
+
+get country(){
+  return this.address.get('country')
+}
+
 }

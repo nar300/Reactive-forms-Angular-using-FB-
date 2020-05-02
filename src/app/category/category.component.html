@@ -39,6 +39,18 @@
         id="street" class="form-control" placeholder="">
       <div class="invalid-feedback">Street name required</div>
     </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      <input type="text" [ngClass]="{'is-invalid': state.errors && state.touched}" formControlName="state"
+        id="state" class="form-control" placeholder="">
+      <div class="invalid-feedback">Please enter your state</div>
+    </div>
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input type="text" [ngClass]="{'is-invalid': country.errors && country.touched}" formControlName="country"
+        id="country" class="form-control" placeholder="">
+      <div class="invalid-feedback">Please enter your Country </div>
+    </div>
      </div>
 
 
