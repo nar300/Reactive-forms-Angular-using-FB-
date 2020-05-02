@@ -9,21 +9,29 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CategoryComponent implements OnInit {
 
 
- userform;
+ userform:FormGroup;
 
   constructor(private fb:FormBuilder) {
 
-    this.userform = fb.group({
-      name:['',Validators.required],
-      email:['',Validators.email]
-      
-    })
+    
+    
 
    }
 
 
   ngOnInit() {
-
+    this.userform = this.fb.group({
+      name:['',Validators.required],
+      email:['',[Validators.required,Validators.email]],
+      phoneNumber: [null, Validators.required],
+      address:this.fb.group({
+        house:['',Validators.required],
+        street:['',Validators.required],
+        city:['',Validators.required],
+        state:['',Validators.required],
+        country:['',Validators.required]
+      })
+    });
     
   }
 
@@ -33,4 +41,18 @@ export class CategoryComponent implements OnInit {
  get email(){
    return this.userform.get('email')
  }
+ get phoneNumber(){
+   return this.userform.get('phoneNumber')
+ }
+ get address(){
+  return this.userform.get('address')
+ }
+get house(){
+  return this.address.get('house')
+}
+
+get street(){
+  return this.address.get('street');
+}
+
 }
